@@ -1,0 +1,23 @@
+Line Assignment:
+
+1: My data structure allows developers to access and manipulate data by first
+storing elements within an array, then providing several class methods that enable
+some of the basic CRUD tasks expected from such a structure. For example, my .join
+and .leave methods essentially just call basic built-in ruby array methods for adding
+and deleting entrants according to the prescribed behavior.
+
+2: To find a specific element in the data structure, a developer could utilize
+the .search method which can accept a string as an argument. It instantiates a
+variable ("result") and sets result to the person being searched for if and only
+if it locates that value inside of the array. Otherwise, it returns nil.
+
+3: The data structure could represent any data that was well-suited to representation
+in the form of the list, if the list required that new entrants were added to the
+back of the list by default. For example: a grocery shopping list where the user
+wanted the oldest items to remain at the top of the list so they weren't forgotten.
+
+///////////////////////////////////////////////////////////////////////////////
+
+Screen Assignment:
+
+1: 
