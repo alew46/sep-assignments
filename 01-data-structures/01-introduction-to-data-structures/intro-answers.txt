@@ -20,4 +20,23 @@ wanted the oldest items to remain at the top of the list so they weren't forgott
 
 Screen Assignment:
 
-1: 
+1: Developers can access and manipulate pixels via the .insert and .at methods,
+which both operate by locating the pixel's coordinates inside the screen matrix.
+Since Ruby doesn't support actual two-dimensional matrices, the screen is really
+just an array of arrays; so, by the same token, accessing the pixel's location is
+really just a matter of selecting the index of the index of the array element
+containing the desired pixel. For .at, the method just return what it locates at
+index(x(y)). For .insert, it sets the existing value (nil by default when the screen
+is created) to whatever pixel value is passed.
+
+2: Same as above: developers can find specific pixels, or reveal the contents of
+a pixel located at a specific spot along the matrix, by using the .at method which
+returns the value of an element located at the index of an array (row) inside another
+array (column). This is made possible because of how the matrix is constructed.
+I used the tutorial located here [https://www.thoughtco.com/two-dimensional-arrays-in-ruby-2907737] to devise the method of constructing the array of
+arrays to mimic a matrix.
+
+3: Any real-world data that needs to be represented in a grid format could make
+use of this data structure: for example, a map of real estate lots where each
+position in the grid represents a property and contains details about the proeprty
+such as home value, occupied or vacant, etc.
