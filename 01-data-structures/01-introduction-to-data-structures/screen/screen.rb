@@ -10,6 +10,7 @@ class Screen
 
   # Insert a Pixel at x, y
   def insert(pixel, x, y)
+
   end
 
   def at(x, y)
