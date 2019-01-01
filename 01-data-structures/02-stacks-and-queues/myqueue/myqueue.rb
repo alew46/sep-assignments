@@ -9,7 +9,7 @@ class MyQueue
   end
 
   def enqueue(element)
-    @queue.push(element)
+    @queue << element
     @head = @queue[0]
     @tail = @queue[-1]
   end
