@@ -1,0 +1,38 @@
+1: Spatial locality refers to pieces of data in close proximity to one another,
+and the ease of computation that this proximity conveys. For example: if a file
+clerk is searching for the records of all employees in an organization whose last
+names start with L through P, his job will be made much easier if the files are
+sorted alphabetically. This is because all records L, M, N, O and P will have
+spatial locality since they will all be next to one another. Rather than jumping
+around a file cabinet that isn't sorted, the clerk can just scoop out all the L
+through P files at once.
+
+In computational terms, spatial locality is helpful because it can enable batch
+operations or indicate when its a good idea to program iterative operations over
+arrays and linked lists. It would especially useful in the case of a linked list,
+where you can't index into the middle of the collection of items and must start
+from the head then proceed downwards.
+
+////////////////////////////////////////////////////////////////////////////////
+
+2:
+
+Adding 10,000 items
+-------------------
+                  user     system      total        real
+array:        0.000000   0.000000   0.000000 (  0.000772)
+linked list:  0.000000   0.000000   0.000000 (  0.003828)
+
+
+Accessing the 5,000th item
+-------------------
+                 user     system      total        real
+array:       0.000000   0.000000   0.000000 (  0.000004)
+linked list: 0.000000   0.000000   0.000000 (  0.000344)
+
+
+Deleting the 5,000th item
+-------------------
+                  user     system      total        real
+array:        0.000000   0.000000   0.000000 (  0.000010)
+linked list:  0.000000   0.000000   0.000000 (  0.000610)
