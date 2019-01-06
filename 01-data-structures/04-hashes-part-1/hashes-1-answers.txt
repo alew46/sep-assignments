@@ -1,0 +1,8 @@
+1: Doubling the size of the underlying array inside of the HashClass is an
+inefficient use of memory and space. If a single collision occurrs, HashClass
+doubles the length of its internal array. The worst-case rate of growth would thus
+be O(n*n), resulting in exponential growth and lots of empty entries.
+
+This seems to run counter to the whole point of Ruby's built-in hash algorithm,
+which uses the starting size 'k' of the initial array as the modulus to only
+increase the array size up to some lowest-possible prime.
