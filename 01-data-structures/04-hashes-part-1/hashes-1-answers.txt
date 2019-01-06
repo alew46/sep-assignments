@@ -5,4 +5,4 @@ be O(n*n), resulting in exponential growth and lots of empty entries.
 
 This seems to run counter to the whole point of Ruby's built-in hash algorithm,
 which uses the starting size 'k' of the initial array as the modulus to only
-increase the array size up to some lowest-possible prime.
+increase the array size up to some lowest-possible prime. 
