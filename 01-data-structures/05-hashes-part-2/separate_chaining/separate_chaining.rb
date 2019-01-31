@@ -98,7 +98,8 @@ class SeparateChaining
     old_items = @items
     @items = Array.new(new_size)
     #create new empty array of that size
-    #from existing array, loop through copy each item to new array; use index and assign
+    #from existing array, loop through copy each item to new array; use index
+    #and assign
       old_items.each do |item|
         if item != nil
           current = item.head
