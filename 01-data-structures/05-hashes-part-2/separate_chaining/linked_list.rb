@@ -40,12 +40,11 @@ class LinkedList
   # This method prints out a representation of the list.
   def print
     #same iteration as before; start at head, move to each node and print the content / data
-    current_node = @head
-    until current_node == @tail
-      puts current_node.data
-      current_node = current_node.next
-    end
-    puts @tail.data
+    node = @head
+      until node == nil do
+        puts "#{node.key}: #{node.value}"
+        node = node.next
+      end
   end
 
   # This method removes `node` from the list and must keep the rest of the list intact.

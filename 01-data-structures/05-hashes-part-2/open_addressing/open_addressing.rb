@@ -44,6 +44,7 @@ class OpenAddressing
         puts "index: #{i}, #{@items[i].key}: #{@items[i].value}"
       end
     end
+    puts "Load Factor: #{load_factor()}"
   end
 
   # Returns a unique, deterministically reproducible index into an array
@@ -80,5 +81,9 @@ class OpenAddressing
     end
     # assign the transfer array to our hash array
     @items = new_array
+  end
+
+  def load_factor
+    @item_counter / size().to_f
   end
 end

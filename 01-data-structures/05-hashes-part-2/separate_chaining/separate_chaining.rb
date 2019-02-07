@@ -115,4 +115,13 @@ class SeparateChaining
         end
       end
   end
+
+  def print_hash
+    (0...size()).each do |i|
+      if @items[i] != nil
+        @items[i].print
+      end
+    end
+    puts "Load Factor: #{load_factor()}"
+  end
 end
