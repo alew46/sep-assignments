@@ -3,6 +3,7 @@ require_relative 'node'
 
 class SeparateChaining
   attr_reader :max_load_factor
+  attr_reader :item_counter
 
   def initialize(size)
     @max_load_factor = 0.7
@@ -10,7 +11,7 @@ class SeparateChaining
     @item_counter = 0
   end
 
-  def []=(key, value)
+  def []=(key, value, resizing=false)
     item_to_add = Node.new(key, value)
     new_index = index(key, @items.length)
 
@@ -25,7 +26,9 @@ class SeparateChaining
     if @items[new_index] == nil
       @items[new_index] = LinkedList.new
       @items[new_index].add_to_front(item_to_add)
-      @item_counter += 1
+      if !resizing
+        @item_counter += 1
+      end
     #else, add the node to the list that's already there
     else
       #get current head
@@ -37,7 +40,9 @@ class SeparateChaining
       #when end reached, add new item to front
       if current_node == nil
         @items[new_index].add_to_front(item_to_add)
-        @item_counter += 1
+        if !resizing
+          @item_counter += 1
+        end
       elsif current_node.key == key
         current_node.value = value
       end
@@ -104,7 +109,7 @@ class SeparateChaining
         if item != nil
           current = item.head
           while current != nil
-            self.[]=(current.key, current.value)
+            self.[]=(current.key, current.value, true)
             current = current.next
           end
         end
