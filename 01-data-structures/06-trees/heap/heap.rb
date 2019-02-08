@@ -55,7 +55,11 @@ class Heap
 
   def printf
     if children == nil
-      children = [@root]
+      if @root
+        children = [@root]
+      else
+        return nil
+      end
     end
 
     next_row = []
