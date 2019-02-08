@@ -116,6 +116,7 @@ class SeparateChaining
       end
   end
 
+  # confirm tests pass
   def print_hash
     (0...size()).each do |i|
       if @items[i] != nil
