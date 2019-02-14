@@ -76,7 +76,7 @@ class OpenAddressing
       if @items[el]
         new_index = @items[el].key.sum % new_array.length
         new_array[new_index] = @items[el]
-        @item[el] = nil
+        @items[el] = nil
       end
     end
     # assign the transfer array to our hash array
