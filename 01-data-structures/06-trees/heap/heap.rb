@@ -53,7 +53,7 @@ class Heap
     end
   end
 
-  def printf
+  def printf(children=nil)
     if children == nil
       if @root
         children = [@root]

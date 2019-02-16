@@ -1,0 +1,62 @@
+RESULTS OF PRINT
+
+**Binary Search Tree**
+> my_fav_films.printf
+Fight Club: 79
+The Mothman Prophecies: 52
+Donnie Darko: 87
+Office Space: 80
+Blade Runner: 90
+Oceans 11: 82
+The Matrix: 88
+Star Wars: The Empire Strikes Back: 95
+Saving Private Ryan: 93
+Goodfellas: 96
+The Dark Knight: 94
+The Godfather: 99
+ => nil
+
+**Heap**
+> my_fav_films.printf
+The Mothman Prophecies: 52
+Donnie Darko: 87
+Office Space: 80
+Star Wars: The Empire Strikes Back: 95
+Goodfellas: 96
+Blade Runner: 90
+Saving Private Ryan: 93
+The Godfather: 99
+Fight Club: 79
+The Dark Knight: 94
+Oceans 11: 82
+The Matrix: 88
+ => nil
+
+===============================================================================
+
+BENCHMARK COMPARISON
+
+**Inserting 1 - 1,000**
+              user     system      total        real
+tree     0.310000   0.000000   0.310000 (  0.32214)
+heap     0.110000   0.000000   0.110000 (  0.12708)
+
+**Searching**
+              user     system      total        real
+tree    0.000000   0.000000   0.000000 (  0.000013)
+heap    0.000000   0.000000   0.000000 (  0.000003)
+
+
+**Deletion**
+              user     system      total        real
+tree    0.000000   0.000000   0.000000 (  0.000005)
+heap    0.000000   0.000000   0.000000 (  0.000002)
+
+
+* On my system, the tree took between 2-3 times as long on average to perform the insertion as compared with the heap.
+
+* The heap search completed much faster than the tree search.
+
+* The deletion took about 2.5 times as long with the tree as compared to the heap
+
+* A heap would be useful when you needed to order the elements in the tree according to a uniform principal, such as a seniority list.
