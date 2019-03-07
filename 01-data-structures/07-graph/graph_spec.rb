@@ -3,61 +3,62 @@ include RSpec
 require_relative 'graph'
 require_relative 'node'
 
-RSpec.describe Graph, type: Class do
+RSpec.describe Node, type: Class do
   let(:graph) {Graph.new}
 
-  before(:all) do
-    STDOUT.sync = true
+  let(:kevin_bacon) { Node.new("Kevin_Bacon") }
+  let(:john_lithgow) { Node.new("John_Lithgow") }
+  let(:chris_penn) { Node.new("Chris_Penn") }
+  let(:sarah_jess_parker) { Node.new("Sarah_Jessica_Parker") }
+  let(:michael_fassbender) { Node.new("Michael_Fassbender") }
+  let(:jennifer_lawrence) { Node.new("Jennifer_Lawrence") }
+  let(:zoe_kravitz) { Node.new("Zoe_Kravitz") }
+  let(:james_mcavoy) { Node.new("James_Mcavoy") }
+  let(:matthew_mcconaughey) { Node.new("Matthew_Mcconaughey") }
+  let(:anne_hathaway) { Node.new("Anne_Hathaway") }
+  let(:jessica_chastain) { Node.new("Jessica_Chastain") }
+  let(:leonardo_dicaprio) { Node.new("Leonardo_Dicaprio") }
+  let(:jonah_hill) { Node.new("Jonah_Hill") }
+  let(:margot_robbie) { Node.new("Margot_Robbie") }
+
+  before do
+    footloose = [kevin_bacon, john_lithgow, chris_penn, sarah_jess_parker]
+    xmen_first_class = [kevin_bacon, james_mcavoy, michael_fassbender, jennifer_lawrence, zoe_kravitz]
+    interstellar = [matthew_mcconaughey, jessica_chastain, john_lithgow, anne_hathaway, zoe_kravitz]
+    wolf_of_wall_street = [leonardo_dicaprio, margot_robbie, jonah_hill, matthew_mcconaughey]
+
+    kevin_bacon.film_actor_hash["Footloose"] = footloose
+    john_lithgow.film_actor_hash["Footloose"] = footloose
+    chris_penn.film_actor_hash["Footloose"] = footloose
+    sarah_jess_parker.film_actor_hash["Footloose"] = footloose
+
+    james_mcavoy.film_actor_hash["X-Men: First Class"] = xmen_first_class
+    michael_fassbender.film_actor_hash["X-Men: First Class"] = xmen_first_class
+    jennifer_lawrence.film_actor_hash["X-Men: First Class"] = xmen_first_class
+    zoe_kravitz.film_actor_hash["X-Men: First Class"] = xmen_first_class
+    kevin_bacon.film_actor_hash["X-Men: First Class"] = xmen_first_class
 
 
-    @keanu_reeves = Node.new("Keanu_Reeves")
-    @laurence_fishburne = Node.new("Laurence_Fishburne")
-    tom_hanks = Node.new("Tom_Hanks")
-    carrie_fisher = Node.new("Carrie_Fisher")
-    rutger_hauer = Node.new("Rutger_Hauer")
-    donald_glover = Node.new("Donald_Glover")
-    alex_lewis = Node.new("Alex_Lewis")
-    kevin_bacon = Node.new("Kevin_Bacon")
-    jim_james = Node.new("Jim_James")
-    gilbert_gottfried = Node.new("Gilbert_Gottfried")
-    paul_newman = Node.new("Paul_Newman")
-    @john_benjamin = Node.new("John_Benjamin")
+    matthew_mcconaughey.film_actor_hash["Interstellar"] = interstellar
+    jessica_chastain.film_actor_hash["Interstellar"] = interstellar
+    john_lithgow.film_actor_hash["Interstellar"] = interstellar
+    anne_hathaway.film_actor_hash["Interstellar"] = interstellar
+    zoe_kravitz.film_actor_hash["Interstellar"] = interstellar
 
-    film_list = Hash.new
-    film_list["The Matrix"] = [@keanu_reeves, @laurence_fishburne]
-    film_list["The Big Picture"] = [kevin_bacon, rutger_hauer, @laurence_fishburne]
-    film_list["Another Film"] = [carrie_fisher, donald_glover, @keanu_reeves]
-    film_list["Test Name"] = [tom_hanks, carrie_fisher]
-    film_list["Gilbert's Run"] = [gilbert_gottfried, tom_hanks]
-    film_list["Nine Hundred Blows"] = [gilbert_gottfried, paul_newman]
-    film_list["This is Eight Degrees"] = [paul_newman, @john_benjamin]
-    film_list["This Isn't Real"] = [alex_lewis]
-
-    @keanu_reeves.add_films(film_list)
-    @laurence_fishburne.add_films(film_list)
-    tom_hanks.add_films(film_list)
-    carrie_fisher.add_films(film_list)
-    rutger_hauer.add_films(film_list)
-    donald_glover.add_films(film_list)
-    alex_lewis.add_films(film_list)
-    kevin_bacon.add_films(film_list)
-    jim_james.add_films(film_list)
-    gilbert_gottfried.add_films(film_list)
-    paul_newman.add_films(film_list)
-    @john_benjamin.add_films(film_list)
-
+    leonardo_dicaprio.film_actor_hash["Wolf of Wall Street"] = wolf_of_wall_street
+    margot_robbie.film_actor_hash["Wolf of Wall Street"] = wolf_of_wall_street
+    jonah_hill.film_actor_hash["Wolf of Wall Street"] = wolf_of_wall_street
+    matthew_mcconaughey.film_actor_hash["Wolf of Wall Street"] = wolf_of_wall_street
   end
+
 
   describe "#find_kevin_bacon" do
     it "successfully returns movies from actor within 6 degrees" do
-      expect(graph.find_kevin_bacon(@keanu_reeves)).to eq "[The Matrix, The Big Picture]"
-      puts "test 1 ran"
+      expect(graph.find_kevin_bacon(leonardo_dicaprio)).to eq (SortedSet.new(["Footloose", "Interstellar", "Wolf of Wall Street"]))
     end
 
     it "doesn't return the results for an actor further than 6 degrees" do
-      i = graph.find_kevin_bacon(@john_benjamin)
-      puts "test 2 ran"
-      expect(i).to eq "something else"
+      expect(graph.find_kevin_bacon(michael_fassbender)).to eq (SortedSet.new(["X-Men: First Class"]))
     end
   end
 

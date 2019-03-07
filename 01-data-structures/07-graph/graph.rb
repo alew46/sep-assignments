@@ -9,12 +9,13 @@ class Graph
     queue = Queue.new
     visited = Set.new
 
-    queue.push(:node => startingActor, :movies => [])
+    queue.push(:node => startingActor, :movies => SortedSet.new)
+
+    #p queue
 
     while !queue.empty?
       currentActor = queue.pop()
-      puts currentActor.name + " has been queued."
-      puts "Queue length is now " + queue.length
+
 
       if currentActor[:node].name == "Kevin_Bacon"
         return currentActor[:movies]
@@ -26,11 +27,15 @@ class Graph
 
       visited.add(currentActor[:node].name)
 
-      currentActor.film_actor_hash.each do |movie, actors|
+      currentActor[:node].film_actor_hash.each do |movie, actors|
+        if currentActor[:movies].include?(movie)
+          next
+        end
+        new_movies = SortedSet.new(currentActor[:movies].to_a)
+        new_movies.add(movie)
         actors.each do |actor|
-          if visited.include?(actor.name)
-            queue.push(:node => actor, :movies => [])
-            visited.add(actor.name)
+          if !visited.include?(actor.name)
+            queue.push(:node => actor, :movies => new_movies)
           end
         end
       end
