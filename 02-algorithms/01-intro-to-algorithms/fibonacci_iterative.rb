@@ -1,14 +1,18 @@
 def fib(n)
 
-  fib_0 = 0
+  if n === 0
+    return 0
+  else
+    fib_0 = 0
 
-  fib_1 = 1
+    fib_1 = 1
 
-  for i in 0..n-1 do
-    temp = fib_0
-    fib_0 = fib_1
+    for i in 1..n-1 do
+      temp = fib_0
+      fib_0 = fib_1
 
-    fib_1 = temp + fib_0
+      fib_1 = temp + fib_0
+    end
   end
 
   return fib_1
