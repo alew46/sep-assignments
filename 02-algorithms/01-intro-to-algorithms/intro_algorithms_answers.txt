@@ -1,0 +1,36 @@
+//////Calculating a Tip//////
+
+READ amount of bill
+SET desired tip percentage
+CALCULATE tip percentage divided by 100 to obtain decimal
+CALCULATE tip decimal multiplied by amount of bill to yield tip amount
+CALCULATE tip amount added to amount of bill to yield total cost
+
+
+
+//////Decide on Coffee Purchase//////
+
+SET money in wallet
+WHILE money is not equal to zero
+  CASE money OF
+    money > 5   : PRINT "latte"
+    money > 3   : PRINT "drip coffee"
+    money > 1   : PRINT "water"
+    OTHERS:
+    print "Keurig it is"
+  ENDCASE
+END
+
+
+//////Assemble Outfit//////
+SET outfitArray = [pants, socks]
+READ outsideTemp
+IF outsideTemp is greater than 70
+  PUSH polo to outfitArray
+ELSIF outsideTemp is greater than 45
+  PUSH dress_shirt to outfitArray
+ELSE
+  PUSH undershirt to outfitArray
+  PUSH sweater to outfitArray
+END
+RETURN outfitArray
