@@ -1,0 +1,14 @@
+1. It would take 7 iterations to find the value 'G' in the sorted array using linear search.
+
+2. It would take 3 iterations to find the value 'G' in the sorted array using binary search.
+
+3.
+fib(10) = fib(10-1) + fib(10-2) = fib(9) + fib(8) = 34 + 21 = 55
+fib(11) = fib(11-1) + fib(11-2) = fib(10) + fib(9) = 55 + 34 = 89
+fib(12) = fib(12-1) + fib(12-2) = fib(11) + fib(10) = 89 + 55 = 144
+
+
+
+1. Given an unsorted collection of a million items, I would opt for a linear iterative search. A binary search would be impossible because it requires a sorted array as input.
+
+2. Given an sorted collection of a million items, I would opt for a recursive binary search. Binary search algorithms are more performative than linear searches in nearly every instance, and the recursive version seems to outperform the iterative one.
