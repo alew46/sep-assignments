@@ -1,0 +1,23 @@
+1. An algorithm that has O(1) complexity is to an algorithm that has O(2^n) complexity as a Ferrari is to a semi-truck. In a quarter-mile drag race, the Ferrari will perform much faster than the mac truck. As the race track is extended, the superiority of the Ferrari's top speed will become more and more apparent. However, in the initial split seconds after both drivers step on the gas (i.e. when n is very small), the differences are harder to detect.
+
+2. Binary search involves pinpointing the lowest, highest, and midpoint values in a sorted collection, then comparing the midpoint to the desired value and discarding the half of the collection on whichever side of the midpoint that doesn't contain the value. As such, the best case scenario is one in which the midpoint compared to the value on the first iteration matches the value.
+
+3. In binary search, the algorithm discards half of the array on each iteration. If the desired value isn’t discovered, the algorithm will keep discarding half of the collection until only one element remains. So, the worst case scenario is one in which the algorithm must perform as many iterations as it takes to reduce the original length of the array by half until it reaches one remaining element.
+
+4. The bounded-case scenario for binary search is one in which the algorithm runs for some number of iterations less than the number required to reduce the number of possible solution elements by half until only one remains. It fails to find the solution element on the first pass through, but finds it at some point before the number of possible elements remaining is one.
+
+5. Graph link: https://docs.google.com/spreadsheets/d/1G6jP5Y1jlFU3cr60aoIuvkRwLofdDr3FjszYSRqHR3g/edit?usp=sharing
+
+6. The limit as x approaches infinity is infinity.
+
+7. The function of the graph is y=2^x. In asymptotic terms, this equal to O(2^n).
+
+8. Method contained in worst_case_binary.rb.
+
+9. https://docs.google.com/spreadsheets/d/1G6jP5Y1jlFU3cr60aoIuvkRwLofdDr3FjszYSRqHR3g/edit?usp=sharing
+
+10. The Big-O of binary search is O(logn). The array length is divided by half on each iteration, and the number of iterations required is equal to the number required to reduce the array length to 1. So in a case where n=16, 16 * (1/2)^4 = 1 and represents the worst case. Generalizing that equation out gets n*(1/2)^k = 1. This is equal to 2^k = n, or, in logarithmic notation with base 2, logn = k.
+
+11. The Big-Ω of binary search is Ω(1).
+
+12. The Big-Ө of binary search is Ө(logn) same as the worst-case Big-O scenario. While the number of iterations may be smaller than the worst case, this is only a constant factor and can be disregarded when considering the rate of change, which is still log of n.
