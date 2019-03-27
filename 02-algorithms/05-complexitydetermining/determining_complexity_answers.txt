@@ -1,0 +1,38 @@
+1. The complexity is O(n). The algorithm takes the same amount of time to complete regardless of the size of n. 
+
+
+2. In this algorithm, there is some computation outside of the loop that will run in constant time (c1).
+
+The loop will execute a number of times equal to the number of items in the collection (n) in the worst case scenario. 
+
+So, the running time is c1 * n, or O(n).
+
+
+3. In this algorithm, the input collection is an array of arrays (or similar). 
+
+There is an outer loop that executes a number of times equal to the length of the collection (n), and an inner loop that executes a number of times equal to the length of each array in the collection, for each array in the collection (n again). 
+
+There is some computation outside of the loop that will run in constant time (c1).
+
+So, the running time is c1 * n * n, or c1 * n^2, or O(n^2).
+
+
+4. This recursive algorithm will run in constant time when n=0 or n=1. When n is large, the algorithm will recursively call itself a number of times that grows as n grows. For sufficiently large n, the algorithm will grow at a rate faster than linear, because as n grows larger, the number of layers of operations required grows even faster. 
+
+Plotting the first few sets of inputs (beyond the base cases) & recursive calls shows a pattern. If the recursions are viewed as nodes in a graph, the number of nodes beyond the root increases every time n increases by 1, such that the number of nodes (recursive calls) grows greater and greater at higher n. The graph has a depth of n, with each call potentially hosting 2 more calls (a binary tree). Intuitively then, it seems like O(2^n) (exponential time) may be a good fit.
+
+f(3) -> f(2) -> f(1) + f(0) + f(1) [4]
+
+f(4) -> f(3) -> f(2) -> f(1) + f(0) + f(1) + f(2) -> f(1) + f(0) [8]
+
+f(5) -> f(4) -> f(3) -> f(2) -> f(1) + f(0) + f(1) + f(2) -> f(1) + f(0) + f(3) -> f(2) -> f(1) + f(0) + f(1) [14]
+
+So, the running time is O(2^n).
+
+
+5. This iterative algorithm returns the same the result for n as the previous algorithm, but operates in constant time because it contains a single non-nested loop that runs an amount of times that scales up proportionally as n increases.
+
+So, the running time is c1 * n, or O(n).
+
+
+6. This quick sort algorithm is recursive and in its worst case, will shift its pivot before comping and recursing only by one index place in the collection. That means the running time could potentially be n * n, or O(n^2).
