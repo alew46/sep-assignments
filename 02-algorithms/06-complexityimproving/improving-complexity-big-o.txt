@@ -1,0 +1,17 @@
+Version 1
+--
+This method uses some constant time operations to concatenate the arrays, get the new array's length, and get the starting index for the new sorted array (and possibly an O(n) operation, depending on how the interior of the .flatten method works).
+
+It then uses an implementation of insertion sort, which loops through a collection of eventual size n while looping through another collection of size n (nested loops). This yields a complexity of n*n after factoring out constant time operations and the possible low-order n from .flatten.
+
+Thus, the complixty is O(n^2).
+
+
+Version 2
+--
+This method replaces insertion sort with Ruby's built-in sort method, a quicksort implementation. Quicksort's complexity is O(nlogn) because it recursively sorts segments of the array divided in half until n=1, then combines those segments back together in divide-and-conquer fashion.
+
+
+Version 3
+--
+This method's complexity is still O(nlogn). It is still utilizing quicksort, but is sorting the array in-place to take less memory.
