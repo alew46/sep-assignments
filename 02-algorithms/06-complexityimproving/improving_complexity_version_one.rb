@@ -1,7 +1,11 @@
 # This method takes n arrays as input and combine them in sorted ascending  order
 def poorly_written_ruby(*arrays)
-  #remove a loop
-  combined_array = arrays.flatten
+  #remove one loop
+  #implement flatten
+  combined_array = []
+  arrays.each do |array|
+    combined_array.concat(array)
+  end
 
   #simplify adding last item to new array
   sorted_array = [combined_array.pop]
